@@ -390,7 +390,7 @@ public class Creature {
      * @return - Can enter true or false
      */
     public boolean canEnter(int wx, int wy, int wz) {
-        return world.tile(wx, wy, wz).isGround() && world.creature(wx, wy, wz) == null;
+        return !world.tile(wx, wy, wz).isGround() || world.creature(wx, wy, wz) != null;
     }
 
     /**

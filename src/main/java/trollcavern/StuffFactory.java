@@ -476,7 +476,7 @@ public class StuffFactory {
                     mx = (int) (Math.random() * 11) - 5;
                     my = (int) (Math.random() * 11) - 5;
                 }
-                while (!creature.canEnter(creature.x + mx, creature.y + my, creature.z)
+                while (creature.canEnter(creature.x + mx, creature.y + my, creature.z)
                         && creature.canSee(creature.x + mx, creature.y + my, creature.z));
 
                 creature.moveBy(mx, my, 0);
@@ -497,7 +497,7 @@ public class StuffFactory {
 
                         Creature bat = newBat(0);
 
-                        if (!bat.canEnter(nx, ny, creature.z)) {
+                        if (bat.canEnter(nx, ny, creature.z)) {
                             world.remove(bat);
                             continue;
                         }
