@@ -212,7 +212,7 @@ public class StuffFactory {
      * @param depth - Level of cavern
      * @return - Item
      */
-    private Item newPotionOfHealth(int depth) {
+    private void newPotionOfHealth(int depth) {
         String appearance = potionAppearances.get(0);
         final Item item = new Item('!', potionColors.get(appearance), "health potion", appearance);
         item.setQuaffEffect(new Effect(1) {
@@ -226,7 +226,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -235,7 +234,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newPotionOfMana(int depth) {
+    private void newPotionOfMana(int depth) {
         String appearance = potionAppearances.get(1);
         final Item item = new Item('!', potionColors.get(appearance), "mana potion", appearance);
         item.setQuaffEffect(new Effect(1) {
@@ -249,7 +248,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -258,7 +256,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newPotionOfSlowHealth(int depth) {
+    private void newPotionOfSlowHealth(int depth) {
         String appearance = potionAppearances.get(2);
         final Item item = new Item('!', potionColors.get(appearance), "slow health potion", appearance);
         item.setQuaffEffect(new Effect(100) {
@@ -273,7 +271,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
 
@@ -285,7 +282,7 @@ public class StuffFactory {
      * @param depth - Level of cavern
      * @return - Item
      */
-    private Item newPotionOfPoison(int depth) {
+    private void newPotionOfPoison(int depth) {
         String appearance = potionAppearances.get(3);
         final Item item = new Item('!', potionColors.get(appearance), "poison potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -300,7 +297,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -311,7 +307,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newPotionOfArcher(int depth) {
+    private void newPotionOfArcher(int depth) {
         String appearance = potionAppearances.get(5);
         Item item = new Item('!', potionColors.get(appearance), "archers potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -327,7 +323,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -336,7 +331,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newPotionOfExperience(int depth) {
+    private void newPotionOfExperience(int depth) {
         String appearance = potionAppearances.get(6);
         Item item = new Item('!', potionColors.get(appearance), "experience potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -347,7 +342,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
 
@@ -356,7 +350,7 @@ public class StuffFactory {
      * <p>
      * Affects creature at the start and restores it at the end
      */
-    private Item newPotionOfWarrior(int depth) {
+    private void newPotionOfWarrior(int depth) {
         String appearance = potionAppearances.get(4);
         Item item = new Item('!', potionColors.get(appearance), "warrior's potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -374,7 +368,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -384,7 +377,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newWhiteMagesSpellbook(int depth) {
+    private void newWhiteMagesSpellbook(int depth) {
         Item item = new Item('+', AsciiPanel.brightWhite, "white mage's spellbook", null);
         item.addWrittenSpell("minor heal", 4, new Effect(1) {
             public void start(Creature creature) {
@@ -439,7 +432,6 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -449,7 +441,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private Item newBlueMagesSpellbook(int depth) {
+    private void newBlueMagesSpellbook(int depth) {
         Item item = new Item('+', AsciiPanel.brightBlue, "blue mage's spellbook", null);
 
         item.addWrittenSpell("blood to mana", 1, new Effect(1) {
@@ -518,7 +510,6 @@ public class StuffFactory {
             }
         });
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
