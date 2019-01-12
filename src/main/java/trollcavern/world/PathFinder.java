@@ -17,10 +17,10 @@ class PathFinder {
     private final HashMap<Point, Integer> totalCost;
 
     public PathFinder() {
-        this.open = new ArrayList<Point>();
-        this.closed = new ArrayList<Point>();
-        this.parents = new HashMap<Point, Point>();
-        this.totalCost = new HashMap<Point, Integer>();
+        this.open = new ArrayList<>();
+        this.closed = new ArrayList<>();
+        this.parents = new HashMap<>();
+        this.totalCost = new HashMap<>();
     }
 
     private int heuristicCost(Point from, Point to) {
@@ -108,7 +108,7 @@ class PathFinder {
     }
 
     private ArrayList<Point> createPath(Point start, Point end) {
-        ArrayList<Point> path = new ArrayList<Point>();
+        ArrayList<Point> path = new ArrayList<>();
 
         while (!end.equals(start)) {
             path.add(end);

@@ -27,7 +27,7 @@ public class Item {
         this.name = name;
         this.appearance = appearance == null ? name : appearance;
         this.thrownAttackValue = 1;
-        this.writtenSpells = new ArrayList<Spell>();
+        this.writtenSpells = new ArrayList<>();
     }
 
     public char glyph() {

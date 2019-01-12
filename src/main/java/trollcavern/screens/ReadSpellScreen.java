@@ -43,7 +43,7 @@ public class ReadSpellScreen implements Screen {
     }
 
     private ArrayList<String> getList() {
-        ArrayList<String> lines = new ArrayList<String>();
+        ArrayList<String> lines = new ArrayList<>();
 
         for (int i = 0; i < item.writtenSpells().size(); i++) {
             Spell spell = item.writtenSpells().get(i);

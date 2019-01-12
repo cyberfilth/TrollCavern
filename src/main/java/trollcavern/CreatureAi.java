@@ -16,7 +16,7 @@ public class CreatureAi {
     protected CreatureAi(Creature creature) {
         this.creature = creature;
         this.creature.setCreatureAi(this);
-        this.itemNames = new HashMap<String, String>();
+        this.itemNames = new HashMap<>();
     }
 
     public boolean canSee(int wx, int wy, int wz) {

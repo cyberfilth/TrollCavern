@@ -56,7 +56,7 @@ public class LevelUpController {
     }
 
     public List<String> getLevelUpOptions() {
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         for (LevelUpOption option : options) {
             names.add(option.name());
         }

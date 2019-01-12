@@ -28,7 +28,7 @@ public class StuffFactory {
      * Potion colours
      */
     private void setUpPotionAppearances() {
-        potionColors = new HashMap<String, Color>();
+        potionColors = new HashMap<>();
         potionColors.put("red potion", AsciiPanel.brightRed);
         potionColors.put("yellow potion", AsciiPanel.brightYellow);
         potionColors.put("green potion", AsciiPanel.brightGreen);
@@ -39,7 +39,7 @@ public class StuffFactory {
         potionColors.put("grey potion", AsciiPanel.white);
         potionColors.put("light potion", AsciiPanel.brightWhite);
 
-        potionAppearances = new ArrayList<String>(potionColors.keySet());
+        potionAppearances = new ArrayList<>(potionColors.keySet());
         Collections.shuffle(potionAppearances);
     }
 

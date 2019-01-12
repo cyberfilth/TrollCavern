@@ -145,8 +145,8 @@ public class World {
         if (item == null)
             return true;
 
-        List<Point> points = new ArrayList<Point>();
-        List<Point> checked = new ArrayList<Point>();
+        List<Point> points = new ArrayList<>();
+        List<Point> checked = new ArrayList<>();
 
         points.add(new Point(x, y, z));
 
