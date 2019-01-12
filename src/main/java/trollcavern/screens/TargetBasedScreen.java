@@ -53,35 +53,43 @@ public class TargetBasedScreen implements Screen {
         int py = y;
 
         switch (key.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_LEFT: // LEFT
+            case KeyEvent.VK_NUMPAD4:
             case KeyEvent.VK_H:
                 x--;
                 break;
-            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_RIGHT: // RIGHT
+            case KeyEvent.VK_NUMPAD6:
             case KeyEvent.VK_L:
                 x++;
                 break;
-            case KeyEvent.VK_UP:
-            case KeyEvent.VK_J:
+            case KeyEvent.VK_UP: // UP
+            case KeyEvent.VK_NUMPAD8:
+            case KeyEvent.VK_K:
                 y--;
                 break;
-            case KeyEvent.VK_DOWN:
-            case KeyEvent.VK_K:
+            case KeyEvent.VK_DOWN: // DOWN
+            case KeyEvent.VK_NUMPAD2:
+            case KeyEvent.VK_J:
                 y++;
                 break;
-            case KeyEvent.VK_Y:
+            case KeyEvent.VK_Y: // DIAGONAL UP / LEFT
+            case KeyEvent.VK_NUMPAD7:
                 x--;
                 y--;
                 break;
-            case KeyEvent.VK_U:
+            case KeyEvent.VK_U: // DIAGONAL UP / RIGHT
+            case KeyEvent.VK_NUMPAD9:
                 x++;
                 y--;
                 break;
-            case KeyEvent.VK_B:
+            case KeyEvent.VK_B: // DIAGONAL DOWN / LEFT
+            case KeyEvent.VK_NUMPAD1:
                 x--;
                 y++;
                 break;
-            case KeyEvent.VK_N:
+            case KeyEvent.VK_N: // DIAGONAL DOWN / RIGHT
+            case KeyEvent.VK_NUMPAD3:
                 x++;
                 y++;
                 break;
