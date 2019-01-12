@@ -134,7 +134,7 @@ public class PlayScreen implements Screen {
      *
      * @param terminal
      */
-    public void displayStats(AsciiPanel terminal) {
+    private void displayStats(AsciiPanel terminal) {
         String playerName = String.format("%8s", player.name());
         String playerLevel = String.format("Level %d", player.level());
         String statsHP = String.format("Health: %3d/%3d", player.hp(), player.maxHp());

@@ -90,11 +90,10 @@ public class StuffFactory {
      * @param player - Player character to follow
      * @return - Creature zombie
      */
-    public Creature newZombie(int depth, Creature player) {
+    public void newZombie(int depth, Creature player) {
         Creature zombie = new Creature(world, 'z', AsciiPanel.white, "zombie", 50, 10, 10);
         world.addAtEmptyLocation(zombie, depth);
         new Zombie(zombie, player);
-        return zombie;
     }
 
     /**
@@ -104,13 +103,12 @@ public class StuffFactory {
      * @param player - Player character to follow
      * @return - Creature goblin
      */
-    public Creature newGoblin(int depth, Creature player) {
+    public void newGoblin(int depth, Creature player) {
         Creature goblin = new Creature(world, 'g', AsciiPanel.brightGreen, "goblin", 66, 15, 5);
         new Goblin(goblin, player);
         goblin.equip(randomWeapon(depth));
         goblin.equip(randomArmour(depth));
         world.addAtEmptyLocation(goblin, depth);
-        return goblin;
     }
 
     /**
@@ -119,11 +117,10 @@ public class StuffFactory {
      * @param depth - what level of the cavern
      * @return - Item rock
      */
-    public Item newRock(int depth) {
+    public void newRock(int depth) {
         Item rock = new Item(',', AsciiPanel.yellow, "rock", null);
         rock.modifyThrownAttackValue(5);
         world.addAtEmptyLocation(rock, depth);
-        return rock;
     }
 
     /**
@@ -132,10 +129,9 @@ public class StuffFactory {
      * @param depth - Level of the cavern
      * @return - Item victory item
      */
-    public Item newVictoryItem(int depth) {
+    public void newVictoryItem(int depth) {
         Item item = new Item('*', AsciiPanel.brightWhite, "teddy bear", null);
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
     /**
@@ -144,11 +140,10 @@ public class StuffFactory {
      * @param depth - what level of the cavern
      * @return - Item ration
      */
-    public Item newRation(int depth) {
+    public void newRation(int depth) {
         Item item = new Item('%', AsciiPanel.brightGreen, "ration", null);
         item.modifyFoodValue(200);
         world.addAtEmptyLocation(item, depth);
-        return item;
     }
 
 
@@ -532,26 +527,34 @@ public class StuffFactory {
      * @param depth - Level of cavern
      * @return - Potion found
      */
-    public Item randomPotion(int depth) {
+    public void randomPotion(int depth) {
         switch ((int) (Math.random() * 9)) {
             case 0:
-                return newPotionOfHealth(depth);
+                newPotionOfHealth(depth);
+                return;
             case 1:
-                return newPotionOfHealth(depth);
+                newPotionOfHealth(depth);
+                return;
             case 2:
-                return newPotionOfMana(depth);
+                newPotionOfMana(depth);
+                return;
             case 3:
-                return newPotionOfMana(depth);
+                newPotionOfMana(depth);
+                return;
             case 4:
-                return newPotionOfSlowHealth(depth);
+                newPotionOfSlowHealth(depth);
+                return;
             case 5:
-                return newPotionOfPoison(depth);
+                newPotionOfPoison(depth);
+                return;
             case 6:
-                return newPotionOfWarrior(depth);
+                newPotionOfWarrior(depth);
+                return;
             case 7:
-                return newPotionOfArcher(depth);
+                newPotionOfArcher(depth);
+                return;
             default:
-                return newPotionOfExperience(depth);
+                newPotionOfExperience(depth);
         }
     }
 
@@ -561,12 +564,13 @@ public class StuffFactory {
      * @param depth - Level of cavern
      * @return - Spellbook found
      */
-    public Item randomSpellBook(int depth) {
+    public void randomSpellBook(int depth) {
         switch ((int) (Math.random() * 2)) {
             case 0:
-                return newWhiteMagesSpellbook(depth);
+                newWhiteMagesSpellbook(depth);
+                return;
             default:
-                return newBlueMagesSpellbook(depth);
+                newBlueMagesSpellbook(depth);
         }
     }
 

@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class GameLauncher extends JFrame implements KeyListener {
+class GameLauncher extends JFrame implements KeyListener {
     private static final long serialVersionUID = -7895776404902719682L;
 
     private final AsciiPanel terminal;
