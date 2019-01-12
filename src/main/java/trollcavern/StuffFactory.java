@@ -90,10 +90,11 @@ public class StuffFactory {
      * @param player - Player character to follow
      * @return - Creature zombie
      */
-    public void newZombie(int depth, Creature player) {
+    public Creature newZombie(int depth, Creature player) {
         Creature zombie = new Creature(world, 'z', AsciiPanel.white, "zombie", 50, 10, 10);
         world.addAtEmptyLocation(zombie, depth);
         new Zombie(zombie, player);
+        return zombie;
     }
 
     /**
@@ -103,12 +104,13 @@ public class StuffFactory {
      * @param player - Player character to follow
      * @return - Creature goblin
      */
-    public void newGoblin(int depth, Creature player) {
+    public Creature newGoblin(int depth, Creature player) {
         Creature goblin = new Creature(world, 'g', AsciiPanel.brightGreen, "goblin", 66, 15, 5);
         new Goblin(goblin, player);
         goblin.equip(randomWeapon(depth));
         goblin.equip(randomArmour(depth));
         world.addAtEmptyLocation(goblin, depth);
+        return goblin;
     }
 
     /**
@@ -117,10 +119,11 @@ public class StuffFactory {
      * @param depth - what level of the cavern
      * @return - Item rock
      */
-    public void newRock(int depth) {
+    public Item newRock(int depth) {
         Item rock = new Item(',', AsciiPanel.yellow, "rock", null);
         rock.modifyThrownAttackValue(5);
         world.addAtEmptyLocation(rock, depth);
+        return rock;
     }
 
     /**
@@ -129,9 +132,10 @@ public class StuffFactory {
      * @param depth - Level of the cavern
      * @return - Item victory item
      */
-    public void newVictoryItem(int depth) {
+    public Item newVictoryItem(int depth) {
         Item item = new Item('*', AsciiPanel.brightWhite, "teddy bear", null);
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
@@ -140,10 +144,11 @@ public class StuffFactory {
      * @param depth - what level of the cavern
      * @return - Item ration
      */
-    public void newRation(int depth) {
+    public Item newRation(int depth) {
         Item item = new Item('%', AsciiPanel.brightGreen, "ration", null);
         item.modifyFoodValue(200);
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
 
@@ -206,13 +211,13 @@ public class StuffFactory {
 
     /**
      * Health potion
-     * <p>
+     *
      * One time effect
      *
      * @param depth - Level of cavern
      * @return - Item
      */
-    private void newPotionOfHealth(int depth) {
+    private Item newPotionOfHealth(int depth) {
         String appearance = potionAppearances.get(0);
         final Item item = new Item('!', potionColors.get(appearance), "health potion", appearance);
         item.setQuaffEffect(new Effect(1) {
@@ -226,6 +231,7 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
@@ -234,7 +240,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private void newPotionOfMana(int depth) {
+    private Item newPotionOfMana(int depth) {
         String appearance = potionAppearances.get(1);
         final Item item = new Item('!', potionColors.get(appearance), "mana potion", appearance);
         item.setQuaffEffect(new Effect(1) {
@@ -248,6 +254,7 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
@@ -256,7 +263,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private void newPotionOfSlowHealth(int depth) {
+    private Item newPotionOfSlowHealth(int depth) {
         String appearance = potionAppearances.get(2);
         final Item item = new Item('!', potionColors.get(appearance), "slow health potion", appearance);
         item.setQuaffEffect(new Effect(100) {
@@ -271,18 +278,19 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
 
     /**
      * Poison potion
-     * <p>
+     *
      * Affects creature each turn
      *
      * @param depth - Level of cavern
      * @return - Item
      */
-    private void newPotionOfPoison(int depth) {
+    private Item newPotionOfPoison(int depth) {
         String appearance = potionAppearances.get(3);
         final Item item = new Item('!', potionColors.get(appearance), "poison potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -297,17 +305,18 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
      * Potion of archer
-     * <p>
+     *
      * improves vision radius
      *
      * @param depth
      * @return
      */
-    private void newPotionOfArcher(int depth) {
+    private Item newPotionOfArcher(int depth) {
         String appearance = potionAppearances.get(5);
         Item item = new Item('!', potionColors.get(appearance), "archers potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -323,6 +332,7 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
@@ -331,7 +341,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private void newPotionOfExperience(int depth) {
+    private Item newPotionOfExperience(int depth) {
         String appearance = potionAppearances.get(6);
         Item item = new Item('!', potionColors.get(appearance), "experience potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -342,15 +352,16 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
 
     /**
      * Warrior potion
-     * <p>
+     *
      * Affects creature at the start and restores it at the end
      */
-    private void newPotionOfWarrior(int depth) {
+    private Item newPotionOfWarrior(int depth) {
         String appearance = potionAppearances.get(4);
         Item item = new Item('!', potionColors.get(appearance), "warrior's potion", appearance);
         item.setQuaffEffect(new Effect(20) {
@@ -368,6 +379,7 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**
@@ -377,7 +389,7 @@ public class StuffFactory {
      * @param depth
      * @return
      */
-    private void newWhiteMagesSpellbook(int depth) {
+    public Item newWhiteMagesSpellbook(int depth) {
         Item item = new Item('+', AsciiPanel.brightWhite, "white mage's spellbook", null);
         item.addWrittenSpell("minor heal", 4, new Effect(1) {
             public void start(Creature creature) {
@@ -433,6 +445,7 @@ public class StuffFactory {
         });
 
         world.addAtEmptyLocation(item, depth);
+        return item;
     }
 
     /**

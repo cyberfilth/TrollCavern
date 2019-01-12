@@ -56,9 +56,7 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < z + 1; i++) {
                 factory.randomPotion(z);
                 factory.randomSpellBook(z);
-                factory.randomSpellBook(z);
-                factory.randomSpellBook(z);
-                factory.randomSpellBook(z);
+
             }
         }
         factory.newVictoryItem(world.depth() - 1);
