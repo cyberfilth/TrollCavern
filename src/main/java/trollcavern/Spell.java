@@ -24,7 +24,6 @@ public class Spell {
         return new Effect(effect);
     }
 
-    @SuppressWarnings("SameReturnValue")
     public boolean requiresTarget() {
         return true;
     }
