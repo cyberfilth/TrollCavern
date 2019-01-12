@@ -1,6 +1,7 @@
 package trollcavern;
 
 import trollcavern.world.FieldOfView;
+import trollcavern.world.Item;
 
 import java.util.List;
 
@@ -29,6 +30,11 @@ public class PlayerAi extends CreatureAi {
             creature.x = x;
             creature.y = y;
             creature.z = z;
+
+            Item item = creature.item(creature.x, creature.y, creature.z);
+            if (item != null)
+                creature.notify("There's a " + creature.nameOf(item) + " here.");
+
         } else if (tile.isDiggable()) {
             creature.dig(x, y, z);
         }

@@ -18,7 +18,6 @@ public class Fungus extends CreatureAi {
         this.factory = factory;
     }
 
-    @Override
     public void onUpdate() {
         if (spreadcount < 5 && Math.random() < 0.001) {
             spread();

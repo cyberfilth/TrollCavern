@@ -12,7 +12,7 @@ public class Line implements Iterable<Point> {
     private final List<Point> points;
 
     public Line(int x0, int y0, int x1, int y1) {
-        points = new ArrayList<Point>();
+        points = new ArrayList<>();
 
         int dx = Math.abs(x1 - x0);
         int dy = Math.abs(y1 - y0);

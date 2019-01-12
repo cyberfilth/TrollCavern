@@ -383,9 +383,10 @@ public class StuffFactory {
             public void start(Creature creature) {
                 if (creature.hp() == creature.maxHp())
                     return;
-
-                creature.modifyHp(20, "Killed by a minor heal spell?");
-                creature.doAction("look healthier");
+                else {
+                    creature.modifyHp(20, "Killed by a minor heal spell?");
+                    creature.doAction("look healthier");
+                }
             }
         });
 
@@ -456,8 +457,8 @@ public class StuffFactory {
             public void start(Creature creature) {
                 creature.doAction("fade out");
 
-                int mx = 0;
-                int my = 0;
+                int mx;
+                int my;
 
                 do {
                     mx = (int) (Math.random() * 11) - 5;
