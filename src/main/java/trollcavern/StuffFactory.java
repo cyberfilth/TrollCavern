@@ -1,10 +1,7 @@
 package trollcavern;
 
 import asciiPanel.AsciiPanel;
-import trollcavern.creatures.Bat;
-import trollcavern.creatures.Fungus;
-import trollcavern.creatures.Goblin;
-import trollcavern.creatures.Zombie;
+import trollcavern.creatures.*;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 import trollcavern.world.World;
@@ -71,13 +68,26 @@ public class StuffFactory {
     }
 
     /**
+     * Rat
+     *
+     * @param depth- what level of the cavern
+     * @return - Creature rat
+     */
+    public Creature newRat(int depth) {
+        Creature rat = new Creature(world, 'r', AsciiPanel.yellow, "rat", 12, 7, 0);
+        world.addAtEmptyLocation(rat, depth);
+        new Rat(rat);
+        return rat;
+    }
+
+    /**
      * Bat
      *
      * @param depth- what level of the cavern
      * @return - Creature bat
      */
     public Creature newBat(int depth) {
-        Creature bat = new Creature(world, 'b', AsciiPanel.brightYellow, "bat", 15, 5, 0);
+        Creature bat = new Creature(world, 'b', AsciiPanel.brightYellow, "bat", 15, 5, 2);
         world.addAtEmptyLocation(bat, depth);
         new Bat(bat);
         return bat;
@@ -211,7 +221,7 @@ public class StuffFactory {
 
     /**
      * Health potion
-     *
+     * <p>
      * One time effect
      *
      * @param depth - Level of cavern
@@ -284,7 +294,7 @@ public class StuffFactory {
 
     /**
      * Poison potion
-     *
+     * <p>
      * Affects creature each turn
      *
      * @param depth - Level of cavern
@@ -310,7 +320,7 @@ public class StuffFactory {
 
     /**
      * Potion of archer
-     *
+     * <p>
      * improves vision radius
      *
      * @param depth
@@ -358,7 +368,7 @@ public class StuffFactory {
 
     /**
      * Warrior potion
-     *
+     * <p>
      * Affects creature at the start and restores it at the end
      */
     private Item newPotionOfWarrior(int depth) {

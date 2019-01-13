@@ -39,6 +39,7 @@ public class PlayScreen implements Screen {
         createItems(stuffFactory);
     }
 
+
     /**
      * Create items
      *
@@ -75,10 +76,8 @@ public class PlayScreen implements Screen {
             }
             for (int i = 0; i < 20; i++) {
                 stuffFactory.newBat(z); // Bat
+
             }
-//            for (int i = 0; i < z + 3; i++) { // for (int i = 0; i < z - 2; i++) can be used to start zombies at level 3
-//                stuffFactory.newZombie(z, player); // Zombie
-//            }
             for (int i = 0; i < z * 2 + 1; i++) {
                 stuffFactory.newZombie(z, player); // Zombie
                 stuffFactory.newGoblin(z, player); // Goblin
@@ -136,19 +135,26 @@ public class PlayScreen implements Screen {
      * @param terminal
      */
     private void displayStats(AsciiPanel terminal) {
-        String playerName = String.format("%8s", player.name());
         String playerLevel = String.format("Level %d", player.level());
-        String statsHP = String.format("Health: %3d/%3d", player.hp(), player.maxHp());
-        String statsMana = String.format("Mana: %d/%d", player.mana(), player.maxMana());
-        String statsXP = String.format("XP:     %3d", player.xp());
+        String statsHP = String.format("%3d/%3d", player.hp(), player.maxHp());
+        String statsMana = String.format("%d/%d", player.mana(), player.maxMana());
         String statsHunger = String.format("%8s", hunger());
 
-        terminal.write(playerName, 85, 2);
-        terminal.write(playerLevel, 85, 4);
-        terminal.write(statsHP, 85, 6);
-        terminal.write(statsMana, 85, 8);
-        terminal.write(statsXP, 85, 10);
-        terminal.write(statsHunger, 85, 12);
+        terminal.write("[ " + player.name() + " ]", 85, 1, AsciiPanel.yellow);
+        terminal.write(playerLevel, 85, 3);
+        terminal.write("Health:", 85, 5).write(statsHP, 93, 5);
+        terminal.write("Mana:", 85, 6).write(statsMana, 93, 6);
+        terminal.write(statsHunger, 85, 8);
+        terminal.write("[?] Help Screen", 82, 10)
+                .write("[,] Pick up item", 82, 11)
+                .write("[d] Drop item", 82, 12)
+                .write("[w] Wear / Wield item", 82, 13)
+                .write("[x] Examine inventory", 82, 14)
+                .write("[r] Read", 82, 15)
+                .write("[e] Eat", 82, 16)
+                .write("[q] Quaff / Drink potion", 82, 17)
+                .write("[;] Look", 82, 18)
+                .write("[t] Throw item", 82, 19);
     }
 
     /**
