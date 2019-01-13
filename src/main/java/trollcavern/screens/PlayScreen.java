@@ -144,7 +144,23 @@ public class PlayScreen implements Screen {
         terminal.write(playerLevel, 85, 3);
         terminal.write("Health:", 85, 5).write(statsHP, 93, 5);
         terminal.write("Mana:", 85, 6).write(statsMana, 93, 6);
-        terminal.write(statsHunger, 85, 8);
+
+        switch (hunger()) {
+            case ("Full belly"):
+                terminal.write(statsHunger, 85, 8, AsciiPanel.green);
+                break;
+            case ("Sated"):
+                terminal.write(statsHunger, 85, 8, AsciiPanel.white);
+                break;
+            case ("Hungry"):
+                terminal.write(statsHunger, 85, 8, AsciiPanel.brightYellow);
+                break;
+            case ("Starving"):
+                terminal.write(statsHunger, 85, 8, AsciiPanel.brightRed);
+                break;
+            default:
+                terminal.write(statsHunger, 85, 8, AsciiPanel.white);
+        }
         terminal.write("[?] Help Screen", 82, 10)
                 .write("[,] Pick up item", 82, 11)
                 .write("[d] Drop item", 82, 12)
