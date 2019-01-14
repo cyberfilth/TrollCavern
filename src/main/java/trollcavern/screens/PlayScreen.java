@@ -1,6 +1,7 @@
 package trollcavern.screens;
 
 import asciiPanel.AsciiPanel;
+import trollcavern.Armoury;
 import trollcavern.Creature;
 import trollcavern.StuffFactory;
 import trollcavern.Tile;
@@ -35,10 +36,20 @@ public class PlayScreen implements Screen {
         fov = new FieldOfView(world);
 
         StuffFactory stuffFactory = new StuffFactory(world);
+        Armoury armoury = new Armoury(world);
         createCreatures(stuffFactory);
         createItems(stuffFactory);
+        createWeapons(armoury);
     }
 
+
+    private void createWeapons(Armoury armoury) {
+        for (int z = 0; z < world.depth(); z++) {
+            armoury.randomArmour(z);
+            armoury.randomWeapon(z);
+            armoury.randomWeapon(z);
+        }
+    }
 
     /**
      * Create items
@@ -51,9 +62,6 @@ public class PlayScreen implements Screen {
                 factory.newRock(z);
             }
             factory.newRation(z);
-            factory.randomArmour(z);
-            factory.randomWeapon(z);
-            factory.randomWeapon(z);
             for (int i = 0; i < z + 1; i++) {
                 factory.randomPotion(z);
                 factory.randomSpellBook(z);

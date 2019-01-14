@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.*;
 
 public class StuffFactory {
-    private final World world;
+    private World world;
     private Map<String, Color> potionColors;
     private List<String> potionAppearances;
 
@@ -117,8 +117,8 @@ public class StuffFactory {
     public Creature newGoblin(int depth, Creature player) {
         Creature goblin = new Creature(world, 'g', AsciiPanel.brightGreen, "goblin", 66, 15, 5);
         new Goblin(goblin, player);
-        goblin.equip(randomWeapon(depth));
-        goblin.equip(randomArmour(depth));
+        goblin.equip(Armoury.randomWeapon(depth));
+        goblin.equip(Armoury.randomArmour(depth));
         world.addAtEmptyLocation(goblin, depth);
         return goblin;
     }
@@ -163,65 +163,7 @@ public class StuffFactory {
 
 
     /**
-     * Dagger
-     *
-     * @param depth - what level of the cavern
-     * @return - Item dagger
-     */
-    private Item newDagger(int depth) {
-        Item item = new Item(')', AsciiPanel.white, "dagger", null);
-        item.modifyAttackValue(5);
-        item.modifyThrownAttackValue(5);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Sword
-     *
-     * @param depth - what level of the cavern
-     * @return - Item sword
-     */
-    private Item newSword(int depth) {
-        Item item = new Item(')', AsciiPanel.brightWhite, "sword", null);
-        item.modifyAttackValue(10);
-        item.modifyThrownAttackValue(3);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Staff
-     *
-     * @param depth - what level of the cavern
-     * @return - Item staff
-     */
-    private Item newStaff(int depth) {
-        Item item = new Item(')', AsciiPanel.yellow, "staff", null);
-        item.modifyAttackValue(5);
-        item.modifyDefenseValue(3);
-        item.modifyThrownAttackValue(3);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Bow
-     *
-     * @param depth - what level of the dungeon
-     * @return - Item bow
-     */
-    private Item newBow(int depth) {
-        Item item = new Item(')', AsciiPanel.yellow, "bow", null);
-        item.modifyAttackValue(1);
-        item.modifyRangedAttackValue(5);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
      * Health potion
-     * <p>
      * One time effect
      *
      * @param depth - Level of cavern
@@ -262,7 +204,6 @@ public class StuffFactory {
                 creature.doAction(item, "look restored");
             }
         });
-
         world.addAtEmptyLocation(item, depth);
         return item;
     }
@@ -588,82 +529,5 @@ public class StuffFactory {
                 newBlueMagesSpellbook(depth);
         }
     }
-
-
-    /**
-     * Light Armour
-     *
-     * @param depth - what level of the cavern
-     * @return - Item light armour
-     */
-    private Item newLightArmour(int depth) {
-        Item item = new Item('[', AsciiPanel.green, "tunic", null);
-        item.modifyDefenseValue(2);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Medium Armour
-     *
-     * @param depth - what level of the cavern
-     * @return - Item medium armour
-     */
-    private Item newMediumArmour(int depth) {
-        Item item = new Item('[', AsciiPanel.white, "chainmail", null);
-        item.modifyDefenseValue(4);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Heavy Armour
-     *
-     * @param depth - what level of the cavern
-     * @return - Item heavy armour
-     */
-    private Item newHeavyArmour(int depth) {
-        Item item = new Item('[', AsciiPanel.brightWhite, "platemail", null);
-        item.modifyDefenseValue(6);
-        world.addAtEmptyLocation(item, depth);
-        return item;
-    }
-
-    /**
-     * Random weapon
-     *
-     * @param depth - what level of the cavern
-     * @return - Randomly selected weapon
-     */
-    public Item randomWeapon(int depth) {
-        switch ((int) (Math.random() * 3)) {
-            case 0:
-                return newDagger(depth);
-            case 1:
-                return newSword(depth);
-            case 2:
-                return newBow(depth);
-            default:
-                return newStaff(depth);
-        }
-    }
-
-    /**
-     * Random Armour
-     *
-     * @param depth - what level of the cavern
-     * @return - Randomly selected armour
-     */
-    public Item randomArmour(int depth) {
-        switch ((int) (Math.random() * 3)) {
-            case 0:
-                return newLightArmour(depth);
-            case 1:
-                return newMediumArmour(depth);
-            default:
-                return newHeavyArmour(depth);
-        }
-    }
-
 
 }
