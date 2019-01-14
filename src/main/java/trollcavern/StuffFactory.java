@@ -50,7 +50,7 @@ public class StuffFactory {
     public Creature newPlayer(List<String> messages, FieldOfView fov) {
         Creature player = new Creature(world, '@', AsciiPanel.brightWhite, "player", 100, 20, 5);
         world.addAtEmptyLocation(player, 0);
-        new PlayerAi(player, messages, fov);
+        new Player(player, messages, fov);
         return player;
     }
 

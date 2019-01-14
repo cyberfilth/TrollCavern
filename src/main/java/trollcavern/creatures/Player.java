@@ -1,16 +1,19 @@
-package trollcavern;
+package trollcavern.creatures;
 
+import trollcavern.Creature;
+import trollcavern.CreatureAi;
+import trollcavern.Tile;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 
 import java.util.List;
 
-public class PlayerAi extends CreatureAi {
+public class Player extends CreatureAi {
 
     private final List<String> messages;
     private final FieldOfView fov;
 
-    public PlayerAi(Creature creature, List<String> messages, FieldOfView fov) {
+    public Player(Creature creature, List<String> messages, FieldOfView fov) {
         super(creature);
         this.messages = messages;
         this.fov = fov;

@@ -43,6 +43,10 @@ public class PlayScreen implements Screen {
     }
 
 
+    /**
+     * Create weapons and armour
+     * @param armoury - Armoury
+     */
     private void createWeapons(Armoury armoury) {
         for (int z = 0; z < world.depth(); z++) {
             armoury.randomArmour(z);
