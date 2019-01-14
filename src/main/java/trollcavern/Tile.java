@@ -3,11 +3,13 @@ package trollcavern;
 import asciiPanel.AsciiPanel;
 import java.awt.*;
 
+import static trollcavern.screens.ColourPalette.*;
+
 
 public enum Tile {
 
-    FLOOR((char) 250,AsciiPanel.caveDarkerBrown, "A dirt and rock cave floor."),
-    WALL((char) 177, AsciiPanel.caveBrown, "A dirt and rock cave wall."),
+    FLOOR((char) 250, caveDarkerBrown, "A dirt and rock cave floor."),
+    WALL((char) 177, caveBrown, "A dirt and rock cave wall."),
     BOUNDS('x', AsciiPanel.brightBlack, "Beyond the edge of the world."),
     STAIRS_DOWN('>', AsciiPanel.white, "A stone staircase that goes down."),
     STAIRS_UP('<', AsciiPanel.white, "A stone staircase that goes up."),
