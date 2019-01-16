@@ -2,6 +2,7 @@ package trollcavern;
 
 import asciiPanel.AsciiPanel;
 import trollcavern.creatures.*;
+import trollcavern.screens.PlayScreen;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 import trollcavern.world.World;
@@ -9,6 +10,9 @@ import trollcavern.world.World;
 import java.awt.*;
 import java.util.List;
 import java.util.*;
+
+import static trollcavern.Armoury.*;
+import static trollcavern.Armoury.randomArmour;
 
 public class StuffFactory {
     private World world;
@@ -98,8 +102,8 @@ public class StuffFactory {
     public Creature newGoblin(int depth, Creature player) {
         Creature goblin = new Creature(world, 'g', AsciiPanel.brightGreen, "goblin", 66, 15, 5);
         new Goblin(goblin, player);
-        goblin.equip(Armoury.randomWeapon(depth));
-        goblin.equip(Armoury.randomArmour(depth));
+        goblin.equip(randomWeapon(depth));
+        goblin.equip(randomArmour(depth));
         world.addAtEmptyLocation(goblin, depth);
         return goblin;
     }
