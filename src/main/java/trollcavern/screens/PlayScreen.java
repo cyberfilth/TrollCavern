@@ -35,12 +35,24 @@ public class PlayScreen implements Screen {
         StuffFactory stuffFactory = new StuffFactory(world);
         Armoury armoury = new Armoury(world);
         PotionGenerator potionFactory = new PotionGenerator(world);
+        Library scrollGenerator = new Library(world);
         createCreatures(stuffFactory);
         createItems(stuffFactory);
         createWeapons(armoury);
         createPotions(potionFactory);
+        createScrolls(scrollGenerator);
     }
 
+    /**
+     * Create scrolls and books
+     * @param scrollGenerator
+     */
+    private void createScrolls(Library scrollGenerator) {
+        for (int z = 0; z < world.depth(); z++) {
+            scrollGenerator.randomSpellBook(z);
+            scrollGenerator.randomSpellBook(z);
+        }
+    }
 
     /**
      * Create weapons and armour
@@ -77,9 +89,6 @@ public class PlayScreen implements Screen {
                 factory.newRock(z);
             }
             factory.newRation(z);
-            for (int i = 0; i < z + 1; i++) {
-                factory.randomSpellBook(z);
-            }
         }
         factory.newVictoryItem(world.depth() - 1);
     }
