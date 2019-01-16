@@ -1,10 +1,7 @@
 package trollcavern.screens;
 
 import asciiPanel.AsciiPanel;
-import trollcavern.Armoury;
-import trollcavern.Creature;
-import trollcavern.StuffFactory;
-import trollcavern.Tile;
+import trollcavern.*;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 import trollcavern.world.World;
@@ -37,14 +34,17 @@ public class PlayScreen implements Screen {
 
         StuffFactory stuffFactory = new StuffFactory(world);
         Armoury armoury = new Armoury(world);
+        PotionGenerator potionFactory = new PotionGenerator(world);
         createCreatures(stuffFactory);
         createItems(stuffFactory);
         createWeapons(armoury);
+        createPotions(potionFactory);
     }
 
 
     /**
      * Create weapons and armour
+     *
      * @param armoury - Armoury
      */
     private void createWeapons(Armoury armoury) {
@@ -52,6 +52,17 @@ public class PlayScreen implements Screen {
             Armoury.randomArmour(z);
             Armoury.randomWeapon(z);
             Armoury.randomWeapon(z);
+        }
+    }
+
+    /**
+     * Create potions
+     *
+     * @param potionsFactory - Potions factory
+     */
+    private void createPotions(PotionGenerator potionsFactory) {
+        for (int z = 0; z < world.depth(); z++) {
+            potionsFactory.randomPotion(z);
         }
     }
 
@@ -67,9 +78,7 @@ public class PlayScreen implements Screen {
             }
             factory.newRation(z);
             for (int i = 0; i < z + 1; i++) {
-                factory.randomPotion(z);
                 factory.randomSpellBook(z);
-
             }
         }
         factory.newVictoryItem(world.depth() - 1);
