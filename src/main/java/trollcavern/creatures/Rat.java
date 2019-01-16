@@ -5,7 +5,6 @@ package trollcavern.creatures;
 
 import trollcavern.Creature;
 import trollcavern.CreatureAi;
-import trollcavern.screens.PlayScreen;
 
 public class Rat extends CreatureAi {
 

@@ -9,7 +9,7 @@ public class Armoury {
     private static World world;
 
     public Armoury(World world) {
-        this.world = world;
+        Armoury.world = world;
     }
 
     /*   Weapons   */
