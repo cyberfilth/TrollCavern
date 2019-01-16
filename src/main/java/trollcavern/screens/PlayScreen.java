@@ -2,6 +2,10 @@ package trollcavern.screens;
 
 import asciiPanel.AsciiPanel;
 import trollcavern.*;
+import trollcavern.generators.Armoury;
+import trollcavern.generators.Library;
+import trollcavern.generators.PotionGenerator;
+import trollcavern.generators.StuffFactory;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 import trollcavern.world.World;

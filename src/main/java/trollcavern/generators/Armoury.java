@@ -1,4 +1,4 @@
-package trollcavern;
+package trollcavern.generators;
 
 import asciiPanel.AsciiPanel;
 import trollcavern.world.Item;

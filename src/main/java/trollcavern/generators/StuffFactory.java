@@ -1,6 +1,7 @@
-package trollcavern;
+package trollcavern.generators;
 
 import asciiPanel.AsciiPanel;
+import trollcavern.Creature;
 import trollcavern.creatures.*;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
@@ -8,8 +9,8 @@ import trollcavern.world.World;
 
 import java.util.List;
 
-import static trollcavern.Armoury.randomArmour;
-import static trollcavern.Armoury.randomWeapon;
+import static trollcavern.generators.Armoury.randomArmour;
+import static trollcavern.generators.Armoury.randomWeapon;
 
 public class StuffFactory {
     private static World world;

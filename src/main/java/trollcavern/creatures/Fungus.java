@@ -7,7 +7,7 @@ package trollcavern.creatures;
 
 import trollcavern.Creature;
 import trollcavern.CreatureAi;
-import trollcavern.StuffFactory;
+import trollcavern.generators.StuffFactory;
 
 public class Fungus extends CreatureAi {
     private final StuffFactory factory;

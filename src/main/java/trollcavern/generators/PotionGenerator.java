@@ -1,6 +1,8 @@
-package trollcavern;
+package trollcavern.generators;
 
 import asciiPanel.AsciiPanel;
+import trollcavern.Creature;
+import trollcavern.Effect;
 import trollcavern.world.Item;
 import trollcavern.world.World;
 
