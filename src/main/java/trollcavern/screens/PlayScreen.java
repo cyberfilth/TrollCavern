@@ -1,11 +1,9 @@
 package trollcavern.screens;
 
 import asciiPanel.AsciiPanel;
-import trollcavern.*;
-import trollcavern.generators.Armoury;
-import trollcavern.generators.Library;
-import trollcavern.generators.PotionGenerator;
-import trollcavern.generators.StuffFactory;
+import trollcavern.Creature;
+import trollcavern.Tile;
+import trollcavern.generators.*;
 import trollcavern.world.FieldOfView;
 import trollcavern.world.Item;
 import trollcavern.world.World;
@@ -36,19 +34,21 @@ public class PlayScreen implements Screen {
         createWorld();
         fov = new FieldOfView(world);
 
-        StuffFactory stuffFactory = new StuffFactory(world);
+        CreatureGenerator creatureGenerator = new CreatureGenerator(world);
         Armoury armoury = new Armoury(world);
         PotionGenerator potionFactory = new PotionGenerator(world);
         Library scrollGenerator = new Library(world);
-        createCreatures(stuffFactory);
-        createItems(stuffFactory);
+        ObjectGenerator objectGenerator = new ObjectGenerator(world);
+        createCreatures(creatureGenerator);
         createWeapons(armoury);
         createPotions(potionFactory);
         createScrolls(scrollGenerator);
+        createObjects(objectGenerator);
     }
 
     /**
      * Create scrolls and books
+     *
      * @param scrollGenerator
      */
     private void createScrolls(Library scrollGenerator) {
@@ -56,6 +56,21 @@ public class PlayScreen implements Screen {
             scrollGenerator.randomSpellBook(z);
             scrollGenerator.randomSpellBook(z);
         }
+    }
+
+    /**
+     * Create objects and items
+     *
+     * @param objectGenerator - food and items
+     */
+    private void createObjects(ObjectGenerator objectGenerator) {
+        for (int z = 0; z < world.depth(); z++) {
+            for (int i = 0; i < world.width() * world.height() / 50; i++) { // changed from 20 to 50
+                objectGenerator.newRock(z);
+            }
+            objectGenerator.newRation(z);
+        }
+        objectGenerator.newVictoryItem(world.depth() - 1);
     }
 
     /**
@@ -83,38 +98,23 @@ public class PlayScreen implements Screen {
     }
 
     /**
-     * Create items
-     *
-     * @param factory - item factory
-     */
-    private void createItems(StuffFactory factory) {
-        for (int z = 0; z < world.depth(); z++) {
-            for (int i = 0; i < world.width() * world.height() / 50; i++) { // changed from 20 to 50
-                factory.newRock(z);
-            }
-            factory.newRation(z);
-        }
-        factory.newVictoryItem(world.depth() - 1);
-    }
-
-    /**
      * Create creatures
      *
-     * @param stuffFactory - creature factory
+     * @param creatureGenerator - creature factory
      */
-    private void createCreatures(StuffFactory stuffFactory) {
-        player = stuffFactory.newPlayer(messages, fov);
+    private void createCreatures(CreatureGenerator creatureGenerator) {
+        player = creatureGenerator.newPlayer(messages, fov);
         for (int z = 0; z < world.depth(); z++) {
             for (int i = 0; i < 8; i++) {
-                stuffFactory.newFungus(z); // Fungus
+                creatureGenerator.newFungus(z); // Fungus
             }
             for (int i = 0; i < 20; i++) {
-                stuffFactory.newBat(z); // Bat
+                creatureGenerator.newBat(z); // Bat
 
             }
             for (int i = 0; i < z * 2 + 1; i++) {
-                stuffFactory.newZombie(z, player); // Zombie
-                stuffFactory.newGoblin(z, player); // Goblin
+                creatureGenerator.newZombie(z, player); // Zombie
+                creatureGenerator.newGoblin(z, player); // Goblin
             }
         }
     }

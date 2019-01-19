@@ -127,7 +127,7 @@ public class Library {
                                 || creature.creature(nx, ny, creature.z) != null)
                             continue;
 
-                        Creature bat = StuffFactory.newBat(0);
+                        Creature bat = CreatureGenerator.newBat(0);
 
                         if (bat.canEnter(nx, ny, creature.z)) {
                             world.remove(bat);

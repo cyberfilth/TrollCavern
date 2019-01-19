@@ -7,13 +7,13 @@ package trollcavern.creatures;
 
 import trollcavern.Creature;
 import trollcavern.CreatureAi;
-import trollcavern.generators.StuffFactory;
+import trollcavern.generators.CreatureGenerator;
 
 public class Fungus extends CreatureAi {
-    private final StuffFactory factory;
+    private final CreatureGenerator factory;
     private int spreadcount;
 
-    public Fungus(Creature creature, StuffFactory factory) {
+    public Fungus(Creature creature, CreatureGenerator factory) {
         super(creature);
         this.factory = factory;
     }
