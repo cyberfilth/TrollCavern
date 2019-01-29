@@ -45,6 +45,7 @@ public class PlayScreen implements Screen {
         createScrolls(scrollGenerator);
         createObjects(objectGenerator);
     }
+    
 
     /**
      * Create scrolls and books
