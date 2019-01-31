@@ -4,10 +4,7 @@ import asciiPanel.AsciiPanel;
 import trollcavern.Creature;
 import trollcavern.Tile;
 import trollcavern.generators.*;
-import trollcavern.world.FieldOfView;
-import trollcavern.world.Item;
-import trollcavern.world.World;
-import trollcavern.world.WorldBuilder;
+import trollcavern.world.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -45,6 +42,7 @@ public class PlayScreen implements Screen {
         createScrolls(scrollGenerator);
         createObjects(objectGenerator);
     }
+
 
     /**
      * Create scrolls and books
