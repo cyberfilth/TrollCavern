@@ -17,9 +17,9 @@ public class Creature {
     private final String name;
     private final Inventory inventory;
     private final List<Effect> effects;
-    public int x;
-    public int y;
-    public int z;
+    public final int x;
+    public final int y;
+    public final int z;
     private CreatureAi ai;
     private int maxHp;
     private int hp;
@@ -60,6 +60,9 @@ public class Creature {
         this.maxMana = 5;
         this.mana = maxMana;
         this.regenManaPer1000 = 20;
+        x = 0;
+        y = 0;
+        z = 0;
     }
 
     public char glyph() {
