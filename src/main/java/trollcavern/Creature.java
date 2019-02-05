@@ -17,9 +17,9 @@ public class Creature {
     private final String name;
     private final Inventory inventory;
     private final List<Effect> effects;
-    public final int x;
-    public final int y;
-    public final int z;
+    public int x;
+    public int y;
+    public int z;
     private CreatureAi ai;
     private int maxHp;
     private int hp;
