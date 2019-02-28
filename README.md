@@ -9,3 +9,4 @@ Once this part is finished I'd like to add the following features, one module at
 * Mini quests
 
 ![Screenshot](docs/screenshot.png)
+
